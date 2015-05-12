@@ -1,14 +1,14 @@
-# Nacetem_hrms
-# Human Resource Management System For National Centre for Technology Management (NACETEM) Nigeria
+#Nacetem_hrms
+##Human Resource Management System For National Centre for Technology Management (NACETEM) Nigeria
 
-##Features
+###Features
 
--Staff Management
---Add Staff
---Edit Staff
---Delete Staff
---Search for Staff based on criteria specified
---Table List Showing all staff in system
+###Staff Management
+--Add Staff\n
+--Edit Staff\n
+--Delete Staff\n
+--Search for Staff based on criteria specified\n
+--Table List Showing all staff in system\n
 
 
 -Leave Management
