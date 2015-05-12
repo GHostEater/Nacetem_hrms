@@ -1,0 +1,52 @@
+<div n-show="authenticated===1">
+	<div ng-include="'app/layout/staffMenu.html'"></div>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover table-condensed">
+				<thead>
+					<th>S/N</th>
+					<th colspan="3">Name</th>
+					<th>Sex</th>
+					<th>State</th>
+					<th>LGA</th>
+					<th>CADRE</th>
+					<th>Designation / Rank</th>
+					<th>Conraiss / Step</th>
+					<th>Date of Birth&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+					<th>Date of Confirmation</th>
+					<th>Date of First Appointment</th>
+					<th>Date of Present Appointment</th>
+					<th>Date of Last Promotion&nbsp&nbsp&nbsp&nbsp&nbsp</th>
+					<th>Qualifications</th>
+					<th>Remarks</th>
+
+					<tr>
+						<td></td>
+						<th>First</th>
+						<th>Middle</th>
+						<th>Surname</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="staff in staffs | orderBy: 'staff.surname'" ng-click="table(staff.staff_id)">
+						<td>{{staff.sn}}</td>
+						<td>{{staff.first_name}}</td>
+						<td>{{staff.middle_name}}</td>
+						<td>{{staff.surname}}</td>
+						<td>{{staff.sex}}</td>
+						<td>{{staff.state}}</td>
+						<td>{{staff.lga}}</td>
+						<td>{{staff.cadre}}</td>
+						<td>{{staff.designation}}</td>
+						<td>{{staff.conraiss}}</td>
+						<td>{{staff.date_birth}}</td>
+						<td>{{staff.date_confirmation}}</td>
+						<td>{{staff.date_first_app}}</td>
+						<td>{{staff.date_present_app}}</td>
+						<td>{{staff.date_last_promotion}}</td>
+						<td ng-bind-html="staff.qualifications"></td>
+						<td ng-bind-html="staff.remarks"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>

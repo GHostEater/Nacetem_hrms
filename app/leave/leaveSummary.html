@@ -1,0 +1,16 @@
+<div ng-show="authenticated === 1">
+	<div class="row">
+		<div ng-include="'app/layout/leaveMenu.html'">
+		</div>
+	</div>
+	<div class="col-sm-8 table-responsive">
+	<br>
+		<table class="table table-striped table-bordered">
+			<tr><th width="40%">Number of Staff:</th><td>{{staffNo}}</td></tr>
+			<tr><th>Number of Pending Leave Applications:</th><td>{{leavePendingLength}}</td></tr>
+			<tr><th>Number of Staff on Leave:</th><td>{{leaveApprovedLength}}</td></tr>
+			<tr><th>Number of Staff Leave About to Expire:</th><td>{{leaveExpiringLength}}</td></tr>
+			<tr><th>Number of Staff Leave Expired:</th><td>{{leaveExpiredLength}}</td></tr>
+		</table>
+	</div>
+</div>

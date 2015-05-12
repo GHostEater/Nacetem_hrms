@@ -1,0 +1,40 @@
+<section>
+	<div ng-show="authenticated === 1">
+		<div class="row">
+			<div ng-include="'app/layout/staffMenu.html'">
+			</div>
+		</div>
+		<div class="row" ng-hide="query">
+			<h3 class="col-xs-12 col-sm-4 col-sm-offset-4">Search in The Search Box</h3>
+		</div>
+		<div class="row" ng-show="query">
+	    	<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3 content list-item' ng-repeat="staff in staffs | orderBy: staff.surname | filter: query" ng-animate="'animate'">
+	    		<a href="#/staff/{{staff.staff_id}}">
+	      		<img ng-src="img/staff/{{staff.img}}" width="100px" height="100px">
+	      		</a>
+	      		<h6><b><em>Name:</em></b> <a href="#/staff/{{staff.staff_id}}">{{staff.surname}}, {{staff.first_name}} {{staff.middle_name}}</a></h6>
+	      		<h6 ng-show="field === 'sex'"><b><em>Sex:</em></b> {{staff.sex}}</h6>
+	      		<h6 ng-show="field === 'state'"><b><em>State:</em></b> {{staff.state}}</h6>
+	      		<h6 ng-show="field === 'lga'"><b><em>LGA:</em></b> {{staff.lga}}</h6>
+	      		<h6 ng-show="field === 'designation'"><b><em>Designation/Rank:</em></b> {{staff.designation}}</h6>
+	      		<h6 ng-show="field === 'conraiss'"><b><em>Conraiss/Step:</em></b> {{staff.conraiss}}</h6>
+	      		<h6 ng-show="field === 'date_birth'"><b><em>Date of Birth:</em></b> {{staff.date_birth}}</h6>
+	      		<h6 ng-show="field === 'date_confirmation'"><b><em>Date of Confirmation:</em></b> {{staff.date_confirmation}}</h6>
+	      		<h6 ng-show="field === 'date_first_app'"><b><em>Date of First Appointment:</em></b> {{staff.date_first_app}}</h6>
+	      		<h6 ng-show="field === 'date_present_app'"><b><em>Date of Present Appointment:</em></b> {{staff.date_present_app}}</h6>
+	      		<h6 ng-show="field === 'date_last_promotion'"><b><em>Date of Last Promotion:</em></b> {{staff.date_last_promotion}}</h6>
+	      		<h6 ng-show="field === 'qualifications'"><b><em>Qualifications:</em></b><span ng-bind-html="staff.qualifications"></span></h6>
+	      		<h6 ng-show="field === 'remarks'"><b><em>Remarks:</em></b><span ng-bind-html="staff.remarks"></span></h6>
+
+			</div>
+		</div>
+
+
+	</div>
+	<div class='row' ng-show="authenticated === 0">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h4><em>Log In With Authorized Username and Password to Gain Access</em></h4>
+			<a href="#/login" class="btn btn-primary">Login</a>
+		</div>
+	</div>
+</section>

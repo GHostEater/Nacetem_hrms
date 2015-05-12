@@ -1,0 +1,178 @@
+img.pull-left{
+	padding-right: 0.5em;
+}
+body{
+	font-size: 1.2em;
+}
+.home,.modal,.delete{
+	text-align: center;
+}
+.btn-primary {
+  	color: lightgoldenrodyellow;
+  	background-color: #673d3b;
+  	border-color: rosybrown;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  	color: lightgoldenrodyellow;
+  	background-color: rosybrown;
+  	border-color: maroon;
+}
+.text-primary{
+	color: lightgoldenrodyellow;
+}
+.badge{
+	background-color: red;
+}
+
+/* NavBar Styles */
+a.navbar-brand{
+	padding-top: 2px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+div.collapse form.search-form div.form-group input{
+	width: 300px;
+	border-radius: 0px;
+}
+div.collapse form.search-form div.form-group select{
+	width: 100px;
+	border-radius: 0px;
+}
+div.collapse form.search-form div.form-group button{
+	width: 70px;
+	border-radius: 0px;
+}
+div.collapse form.search-form div.form-group a{
+	border-radius: 0px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+nav.navbar{
+	margin-bottom: 0px;
+	border-radius: 0px;
+}
+
+/* Style for side-menu */
+.aside{
+	border-right: 1px solid lightgoldenrodyellow;
+	background-color: #fff;
+}
+ul.nav-stacked li a,ul.nav-stacked li a:focus{
+	background-color: #fff;
+	color: #666;
+	border-radius: 0px;
+	padding: 5px 0 5px 10px;
+}
+ul.nav-stacked li a:hover{
+	background-color: rosybrown;
+	color: #fff;
+	border-radius: 0px;
+}
+ul.nav-stacked li.active a{
+	background-color: #673d3b;
+	color: lightgoldenrodyellow;
+	border-radius: 0px;
+	font-weight: bold;
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  color: lightgoldenrodyellow;
+  background-color:#673d3b;
+}
+
+/* Style for main-body tabs */
+ul.nav-tabs li.active a, ul.nav-tabs li.active a:focus{
+	border-top: none;
+	border-bottom: 4px solid rosybrown;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	color: lightgoldenrodyellow;
+	background-color: #673d3b;
+}
+ul.nav-tabs li.active a:hover{
+	border-top: none;
+	border-bottom: 4px solid rosybrown;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	color: lightgoldenrodyellow;
+	background-color: #673d3b;
+}
+ul.nav-tabs li a:hover{
+	border-top: none;
+	border-bottom: 4px solid gold;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	color: lightgoldenrodyellow;
+	background-color: #673d3b;
+}
+ul.nav-tabs li a, ul.nav-tabs li a:focus{
+	border-top: none;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+	color: gray;
+}
+ul.nav-tabs{
+	padding-left: 20%;
+	padding-right: 20%;
+	border-bottom: 1px solid lightgoldenrodyellow;
+}
+
+
+/*MainBody Styles*/
+.overall{
+	margin-bottom: 20px;
+	padding: 0;
+	background-color: rgba(103,61,59,0.6);
+	border-radius: 0 0 20px 20px;
+}
+.mainBody{
+	margin: 0px 30px 0px 30px;
+	padding-top: 20px;
+	background-color: white;
+}
+.content{
+	padding: 10px 10px 10px 10px;
+	overflow: hidden;
+}
+.btn-back{
+	padding: 10px 10px 10px 35px;
+
+	border-bottom: 1px solid lightgoldenrodyellow;
+}
+.list-item{
+	opacity: 0.9;
+	-webkit-transition: all 0.4s ease-out;
+	-moz-transition: all 0.4s ease-out;
+	transition: all 0.4s ease-out;
+}
+.list-item.ng-enter.ng-enter-active,
+.list-item.ng-leave {
+  opacity: 1;
+  height: 80px;
+  overflow: hidden;
+}
+.list-item.ng-leave.ng-leave-active,
+.list-item.ng-enter {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+footer{
+	padding: 10px 0 10px 0;
+	background-color: brown;
+	text-align: center;
+	color: black;
+	font-size: 1.1em;
+	border-radius: 0 0 20px 20px;
+}

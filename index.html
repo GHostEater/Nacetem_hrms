@@ -1,0 +1,118 @@
+<!doctype html>
+<html ng-app="hermes">
+<head>
+
+  <meta charset="utf-8">
+  <title>HRMS</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/custom.css" rel="stylesheet">
+
+  <script src="js/angular.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <script src="js/angular-animate.js"></script>
+  <script src="js/angular-sanitize.min.js"></script>
+  <script src="js/lodash.min.js"></script>
+  <script src="js/angular-file-upload-all.js"></script>
+
+  <script src="app/app.js"></script>
+  <script src="app/LoginCtrl.js"></script>
+  <script src="app/LogoutCtrl.js"></script>
+  <script src="app/HomeCtrl.js"></script>
+  <script src="app/staff/StaffSummaryCtrl.js"></script>
+  <script src="app/staff/StaffSearchCtrl.js"></script>
+  <script src="app/staff/StaffListCtrl.js"></script>
+  <script src="app/staff/StaffDetailCtrl.js"></script>
+  <script src="app/staff/AddStaffCtrl.js"></script>
+  <script src="app/staff/EditStaffCtrl.js"></script>
+  <script src="app/leave/LeaveSummaryCtrl.js"></script>
+  <script src="app/leave/LeavePendingCtrl.js"></script>
+  <script src="app/leave/LeaveApprovedCtrl.js"></script>
+  <script src="app/leave/LeaveReviewCtrl.js"></script>
+  <script src="app/leave/LeaveApplyCtrl.js"></script>
+
+  <script src="js/jquery-1.11.2.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/respond.min.js"></script>
+
+  <script src="js/tinymce/tinymce.min.js"></script>
+  <script src="js/tinyconfig.js"></script>
+  <script src="js/tinymceBind.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#/"><img src="img/logo.png" width="133" height="46"></a>
+          </div><!-- /.navbar-header -->
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <form class="navbar-form search-form navbar-left" role="search" ng-show="authenticated === 1">
+                  <div class="form-group form-inline">
+                    <div ng-show="page === 'staffSearch'" class="form-group form-inline">
+                      <label class="text-primary">Search for:</label>
+                      <select class="form-control" ng-model="field">
+                          <option value="name">Name</option>
+                          <option value="date_birth">Date of Birth</option>
+                          <option value="sex">Sex</option>
+                          <option value="state">State</option>
+                          <option value="lga">LGA</option>
+                          <option value="cadre">CADRE</option>
+                          <option value="designation">Designation/Rank</option>
+                          <option value="conraiss">Conraiss/Step</option>
+                          <option value="date_confirmation">Date of Confirmation</option>
+                          <option value="date_first_app">Date of First Appointment</option>
+                          <option value="date_present_app">Date of Present Appointment</option>
+                          <option value="date_last_promotion">Date of Last Promotion</option>
+                          <option value="qualifications">Qualifications</option>
+                          <option value="remarks">Remarks</option>
+                      </select>
+                      <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                      &nbsp&nbsp&nbsp&nbsp
+                    </div>
+                      <a ng-show="page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'" class="btn btn-primary" href="#/staff/add">Add Staff Member</a>
+                      <a ng-show="page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'" class="btn btn-primary" href="#/leave/apply">Apply for Leave</a>
+                  </div>
+              </form>
+              <form class="navbar-form navbar-right" ng-show="authenticated === 1">
+                <div class="form-group form-inline">
+                  <span class="text-primary">Logged in as {{name}}</span>&nbsp&nbsp
+                  <a class="btn btn-primary" href="#/logout">Logout</a>
+                </div>
+              </form>
+          </div><!--/.navbar-collapse-->
+      </div><!-- /.container-fluid -->
+  </nav><!-- /.navbar -->
+
+  <div class="container-fluid overall">
+    <div class="container-fluid mainBody">
+      <div ng-class="{'row':menu === 1}">
+        <aside ng-class="{'col-sm-2 aside': menu === 1}" ng-show="authenticated===1">
+        <button class="btn btn-primary" ng-click="menuToggle()">Menu</button>
+          <ul class="nav nav-pills nav-stacked" ng-show="menu === 1">
+          <hr>
+            <li ng-class="{'active':page==='home'}"><a href="#/"><span class="glyphicon glyphicon-home"></span>&nbsp Home</a></li>
+            <li ng-class="{ 'active':page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'||page==='addStaff'||page==='editStaff'}"><a href="#/staff"><span class="glyphicon glyphicon-user"></span>&nbsp Staff Management</a></li>
+            <li ng-class="{'active':page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'||page==='leaveApply'}"><a href="#/leave"><span class="glyphicon glyphicon-user"></span>&nbsp Leave Management</a></li>
+          </ul>
+        </aside>
+
+        <div ng-class="{ 'col-sm-10': menu === 1 }" ng-view>
+        </div>
+      </div>
+    </div>
+    <div ng-include="'app/layout/footer.html'">
+    </div>
+  </div>
+
+</body>
+</html>

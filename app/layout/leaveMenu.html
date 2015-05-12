@@ -1,0 +1,9 @@
+<nav>
+	<ul class="nav nav-tabs">
+		<li ng-class="{ 'active': page === 'leaveSummary' }"><a href="#/leave">Summary</a></li>
+        <li ng-class="{ 'active': page === 'leavePending' }"><a href="#/leave/pending">Pending <span class="badge" ng-hide="leavePendingLength === 0">{{leavePendingLength}}</span></a></li>
+        <li ng-class="{ 'active': page === 'leaveApproved' }"><a href="#/leave/approved">Approved <span class="badge" ng-hide="leaveApprovedLength === 0">{{leaveApprovedLength}}</span></a></li>
+        <li ng-class="{ 'active': page === 'leaveDeclined' }"><a href="#/leave/declined">Declined <span class="badge" ng-hide="leaveDeclinedLength === 0">{{leaveDeclinedLength}}</span></a></li>
+        <li ng-class="{ 'active': page === 'leaveCompleted' }"><a href="#/leave/completed">Completed <span class="badge" ng-hide="leaveExpiredLength === 0">{{leaveCompletedLength}}</span></a></li>
+   	</ul>
+</nav>

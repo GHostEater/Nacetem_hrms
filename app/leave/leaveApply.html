@@ -1,0 +1,72 @@
+<div class="row btn-back">
+  <button class="btn btn-primary" onclick="window.history.back()">Back</button>
+</div>
+<div class="row col-sm-10 col-sm-offset-1">
+<h4 class="bg-success" ng-show="addStaffSuccess === 1" ng-click="reset()">Staff Added Sucessfully</h4>
+
+	<form>
+		<fieldset>
+		<legend>Apply For Leave</legend>
+			<div class="row content">
+				<div class="panel panel-default">
+				<div class="panel-body form-inline">
+					<div ng-show="staffSelected === 0">
+						<h5>Select Staff From List</h5>
+						<input type="text" class="form-control" placeholder="search" ng-model="applyQuery"><button class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+						<div class="table-responsive">
+							<table class="table table-striped table-condensed">
+								<thead>
+									<th>Name</th>
+									<th>Sex</th>
+									<th>Date of Birth</th>
+									<th>State</th>
+									<th>LGA</th>
+								</thead>
+								<tbody>
+									<tr ng-repeat="staff in staffs" ng-show="applyQuery" ng-click="selectStaff(staff.staff_id)">
+										<td>{{staff.surname}}, {{staff.first_name}} {{staff.middle_name}}</td>
+										<td>{{staff.sex}}</td>
+										<td>{{staff.date_birth}}</td>
+										<td>{{staff.state}}</td>
+										<td>{{staff.lga}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div ng-show="staffSelected === 1">
+						<img ng-src="img/staff/{{staffPicked.img}}" class="img-responsive" width="200px" height="200px">
+						<h5><b><em>Name:</em></b> {{staffPicked.surname}}, {{staffPicked.first_name}} {{staffPicked.middle_name}}</h5>
+						<button class="btn btn-primary" ng-click="reset()">Change Staff</button>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div ng-show="staffSelected === 1">
+				<div class="form-inline row content">
+					<label class="label-control col-sm-3">Leave Type: </label>
+					<select class="form-control col-sm-9" ng-model="leave_type" required>
+						<option value="Annual Leave">Annual Leave</option>
+						<option value="Sick Leave">Sick Leave</option>
+						<option value="Study Leave">Study Leave</option>
+						<option value="Leave of Absence">Leave of Absence</option>
+						<option value="Casual Leave">Casual Leave</option>
+					</select>
+
+				</div>
+				<div class="form-inline row content">
+					<label class="label-control col-sm-3">Start Date: </label><input type="date" class="form-control col-sm-9" ng-model="starting" required>
+				</div>
+				<div class="form-inline row content">
+					<label class="label-control col-sm-3">End Date: </label><input type="date" class="form-control col-sm-9" ng-model="end" required>
+				</div>
+				<div class="form-inline row content">
+					<span style="font-weight: bold">Reason: </span><textarea ui-tinymce class="form-control" ng-model="reason"></textarea>
+				</div>
+				<div class="row content">
+					<button type="submit" class="btn btn-primary col-xs-2 col-xs-offset-4" ng-click="submit()">Submit</button>
+					<button class="btn btn-default col-xs-2 col-xs-offset-1" onclick="window.history.back()">Cancel</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
