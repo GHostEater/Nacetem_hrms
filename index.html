@@ -82,8 +82,8 @@
                       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
                       &nbsp&nbsp&nbsp&nbsp
                     </div>
-                      <a ng-show="page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'" class="btn btn-primary" href="#/staff/add">Add Staff Member</a>
-                      <a ng-show="page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'" class="btn btn-primary" href="#/leave/apply">Apply for Leave</a>
+                      <a ng-show="page==='staffSearch'||'staffList'||'staffDetail'||'staffSummary'" class="btn btn-primary" href="#/staff/add">Add Staff Member</a>
+                      <a ng-show="page==='leaveSummary'||'leavePending'||'leaveApproved'||'leaveCompleted'||'leaveHistory'||'leaveReview'" class="btn btn-primary" href="#/leave/apply">Apply for Leave</a>
                   </div>
               </form>
               <form class="navbar-form navbar-right" ng-show="authenticated === 1">
@@ -99,16 +99,7 @@
   <div class="container-fluid overall">
     <div class="container-fluid mainBody">
       <div ng-class="{'row':menu === 1}">
-        <aside ng-class="{'col-sm-2 aside': menu === 1}" ng-show="authenticated===1">
-        <button class="btn btn-primary" ng-click="menuToggle()">Menu</button>
-          <ul class="nav nav-pills nav-stacked" ng-show="menu === 1">
-          <hr>
-            <li ng-class="{'active':page==='home'}"><a href="#/"><span class="glyphicon glyphicon-home"></span>&nbsp Home</a></li>
-            <li ng-class="{ 'active':page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'||page==='addStaff'||page==='editStaff'}"><a href="#/staff"><span class="glyphicon glyphicon-user"></span>&nbsp Staff Management</a></li>
-            <li ng-class="{'active':page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'||page==='leaveApply'}"><a href="#/leave"><span class="glyphicon glyphicon-plane"></span>&nbsp Leave Management</a></li>
-          </ul>
-        </aside>
-
+        <div ng-include="'app/layout/side_menu.html'"></div>
         <div ng-class="{ 'col-sm-10': menu === 1 }" ng-view>
         </div>
       </div>
