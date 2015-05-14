@@ -10,9 +10,6 @@ var LeaveApprovedCtrl = function ($scope,$rootScope,$http,$log,$location) {
 
 		 	$scope.leaveApproved = _.where($scope.leave,{"status":"1"});
 		 });
-	$scope.table = function(leave_id){
-		$location.url('/leave/review/'+leave_id);
-	};
 };
 
 app.controller("LeaveApprovedCtrl",LeaveApprovedCtrl);

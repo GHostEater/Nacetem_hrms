@@ -75,16 +75,17 @@ app.config(['$routeProvider', function($routeProvider) {
     $rootScope.menu = 1;
 
     $rootScope.menuToggle = function (){
-    if ($rootScope.menu === 1) i = 1;
-    if ($rootScope.menu === 0) i = 0;
+        var i;
+        if ($rootScope.menu === 1) i = 1;
+        if ($rootScope.menu === 0) i = 0;
 
-    if (i === 1){
-      $rootScope.menu = 0;
-    }
-    else if (i === 0){
-      $rootScope.menu = 1;
-    }
-  }
+        if (i === 1){
+          $rootScope.menu = 0;
+        }
+        else if (i === 0){
+          $rootScope.menu = 1;
+        }
+  };
 
     $http.get('services/session.php')
   .success(function(data){
