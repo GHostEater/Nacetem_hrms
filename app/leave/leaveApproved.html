@@ -1,26 +1,36 @@
-<div ng-include="'app/layout/leaveMenu.html'"></div>
-	<div class="table-responsive">
-		<table class="table table-striped table-hover table-condensed">
-			<thead>
-				<th>Name</th>
-				<th>Leave Type</th>
-				<th>Start</th>
-				<th>End</th>
-				<th>Duration</th>
-				<th>Reason</th>
-			</thead>
-			<tbody>
-				<tr ng-repeat="leaf in leaveApproved">
-					<td>{{leaf.surname}}, {{leaf.first_name}} {{leaf.middle_name}}</td>
-					<td>{{leaf.leave_type}}</td>
-					<td>{{leaf.start}}</td>
-					<td>{{leaf.end}}</td>
-					<td>{{leaf.duration}}</td>
-					<td>{{leaf.reason}}</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div ng-show="leaveApprovedLength === 0">
-		<h3>There are no Approved Leaves</h3>
-	</div>
+<div ng-show="authenticated === 1">
+    <div ng-include="'app/layout/leaveMenu.html'"></div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-condensed">
+            <thead>
+                <th>Name</th>
+                <th>Leave Type</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Reason</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="leaf in leaveApproved">
+                    <td>{{leaf.surname}}, {{leaf.first_name}} {{leaf.middle_name}}</td>
+                    <td>{{leaf.leave_type}}</td>
+                    <td>{{leaf.start}}</td>
+                    <td>{{leaf.end}}</td>
+                    <td>{{leaf.duration}}</td>
+                    <td>{{leaf.reason}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-show="leaveApprovedLength === 0">
+        <h3>There are no Approved Leaves</h3>
+    </div>
+</div>
+<div ng-show="authenticated === 0">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <h4>You are not Authorised to View this page</h4><br>
+            <a href="#/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
+</div>

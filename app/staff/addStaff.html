@@ -1,79 +1,89 @@
-<div class="row btn-back">
-  <button class="btn btn-primary" onclick="window.history.back()">Back</button>
-</div>
-<div class="row col-sm-10 col-sm-offset-1">
-<h4 class="bg-success" ng-show="addStaffSuccess === 1" ng-click="reset()">Staff Added Sucessfully</h4>
+<div ng-show="authenticated === 1">
+    <div class="row btn-back">
+      <button class="btn btn-primary" onclick="window.history.back()">Back</button>
+    </div>
+    <div class="row col-sm-10 col-sm-offset-1">
+    <h4 class="bg-success" ng-show="addStaffSuccess === 1" ng-click="reset()">Staff Added Sucessfully</h4>
 
-	<form id="form">
-		<fieldset>
-		<legend>Add Staff</legend>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Photo: </label><input type="file" class="form-control col-sm-9" ng-file-select ng-model="file">
-			</div>
-			<div class="form-inline row content">
-				<label class="label-control col-sm-3">Name: </label>
-				<input type="text" class="form-control col-sm-3" placeholder="First" ng-model="first" required>
-				<input type="text" class="form-control col-sm-3" placeholder="Middle" ng-model="middle" required>
-				<input type="text" class="form-control col-sm-3" placeholder="Surname" ng-model="surname" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="label-control col-sm-3">Date of Birth: </label><input type="date" class="form-control col-sm-9" ng-model="date_birth" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="label-control col-sm-3">Sex: </label>
-					<select class="form-control col-sm-9" ng-model="sex" required>
-						<option value="Male">Male</option>
-						<option value="Female">Female</option>
-					</select>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">State: </label>
-				<input type="text" class="form-control col-sm-9" ng-model="state" require>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">LGA: </label>
-				<input type="text" class="form-control col-sm-9" ng-model="lga" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">CADRE: </label>
-				<input type="text" class="form-control col-sm-9" ng-model="cadre" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Designation/Rank: </label>
-				<input type="text" class="form-control col-sm-9" ng-model="designation" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Conraiss/Step: </label>
-				<input type="text" class="form-control col-sm-9" ng-model="conraiss" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Date of Confirmation: </label>
-				<input type="date" class="form-control col-sm-9" ng-model="date_confirmation" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Date of First Appointment: </label>
-				<input type="date" class="form-control col-sm-9" ng-model="date_first_app" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Date of Present Appointment: </label>
-				<input type="date" class="form-control col-sm-9" ng-model="date_present_app" required>
-			</div>
-			<div class="form-inline row content">
-				<label class="col-sm-3">Date of Last Promotion: </label>
-				<input type="date" class="form-control col-sm-9" ng-model="date_last_promotion">
-			</div>
-			<div class="form-inline row content">
-				<span style="font-weight: bold">Qualifications:</span>
-				<textarea ui-tinymce class="form-control" ng-model="qualifications"></textarea>
-			</div>
-			<div class="form-inline row content">
-				<span style="font-weight: bold">Remarks:</span>
-				<textarea ui-tinymce class="form-control" ng-model="remarks"></textarea>
-			</div>
-		</fieldset>
-		<div class="row content">
-			<button type="submit" class="btn btn-primary col-xs-2 col-xs-offset-4" ng-click="submit()">Submit</button>
-			<button class="btn btn-default col-xs-2 col-xs-offset-1" onclick="window.history.back()">Cancel</button>
-		</div>
-	</form>
+        <form id="form">
+            <fieldset>
+            <legend>Add Staff</legend>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Photo: </label><input type="file" class="form-control col-sm-9" ng-file-select ng-model="file">
+                </div>
+                <div class="form-inline row content">
+                    <label class="label-control col-sm-3">Name: </label>
+                    <input type="text" class="form-control col-sm-3" placeholder="First" ng-model="first" required>
+                    <input type="text" class="form-control col-sm-3" placeholder="Middle" ng-model="middle" required>
+                    <input type="text" class="form-control col-sm-3" placeholder="Surname" ng-model="surname" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="label-control col-sm-3">Date of Birth: </label><input type="date" class="form-control col-sm-9" ng-model="date_birth" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="label-control col-sm-3">Sex: </label>
+                        <select class="form-control col-sm-9" ng-model="sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">State: </label>
+                    <input type="text" class="form-control col-sm-9" ng-model="state" require>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">LGA: </label>
+                    <input type="text" class="form-control col-sm-9" ng-model="lga" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">CADRE: </label>
+                    <input type="text" class="form-control col-sm-9" ng-model="cadre" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Designation/Rank: </label>
+                    <input type="text" class="form-control col-sm-9" ng-model="designation" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Conraiss/Step: </label>
+                    <input type="text" class="form-control col-sm-9" ng-model="conraiss" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Date of Confirmation: </label>
+                    <input type="date" class="form-control col-sm-9" ng-model="date_confirmation" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Date of First Appointment: </label>
+                    <input type="date" class="form-control col-sm-9" ng-model="date_first_app" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Date of Present Appointment: </label>
+                    <input type="date" class="form-control col-sm-9" ng-model="date_present_app" required>
+                </div>
+                <div class="form-inline row content">
+                    <label class="col-sm-3">Date of Last Promotion: </label>
+                    <input type="date" class="form-control col-sm-9" ng-model="date_last_promotion">
+                </div>
+                <div class="form-inline row content">
+                    <span style="font-weight: bold">Qualifications:</span>
+                    <textarea ui-tinymce class="form-control" ng-model="qualifications"></textarea>
+                </div>
+                <div class="form-inline row content">
+                    <span style="font-weight: bold">Remarks:</span>
+                    <textarea ui-tinymce class="form-control" ng-model="remarks"></textarea>
+                </div>
+            </fieldset>
+            <div class="row content">
+                <button type="submit" class="btn btn-primary col-xs-2 col-xs-offset-4" ng-click="submit()">Submit</button>
+                <button class="btn btn-default col-xs-2 col-xs-offset-1" onclick="window.history.back()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div ng-show="authenticated === 0">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <h4>You are not Authorised to View this page</h4><br>
+            <a href="#/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
 </div>

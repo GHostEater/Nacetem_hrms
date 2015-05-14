@@ -11,7 +11,7 @@
             <th>Reason</th>
             </thead>
             <tbody>
-            <tr ng-repeat="leaf in leavePending" ng-click="table(leaf.leave_id)">
+            <tr ng-repeat="leaf in leaveApproved">
                 <td>{{leaf.surname}}, {{leaf.first_name}} {{leaf.middle_name}}</td>
                 <td>{{leaf.leave_type}}</td>
                 <td>{{leaf.start}}</td>
@@ -22,8 +22,8 @@
             </tbody>
         </table>
     </div>
-    <div ng-show="leavePendingLength === 0">
-        <h3>There are no Pending Leave Applications</h3>
+    <div ng-show="leaveApprovedLength === 0">
+        <h3>There are no Approved Leaves</h3>
     </div>
 </div>
 <div ng-show="authenticated === 0">

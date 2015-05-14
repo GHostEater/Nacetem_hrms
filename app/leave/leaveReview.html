@@ -1,47 +1,56 @@
-<div class="row btn-back">
-  <button class="btn btn-primary" onclick="window.history.back()">Back</button>
+<div ng-show="authenticated === 1">
+    <div class="row btn-back">
+      <button class="btn btn-primary" onclick="window.history.back()">Back</button>
+    </div>
+    <h4>Leave Application Details</h4>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <img ng-src="img/staff/{{leave.img}}" class="img-responsive col-sm-3">
+                <div class="col-sm-7 col-sm-offset-2">
+                    <h5><b>Leave History</b></h5>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-condensed">
+                            <thead>
+                                <th>Type</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Duration</th>
+                                <th>Reason</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="history in histories">
+                                    <td>{{history.leave_type}}</td>
+                                    <td>{{history.start}}</td>
+                                    <td>{{history.end}}</td>
+                                    <td>{{history.duration}}</td>
+                                    <td>{{history.reason}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row content">
+                <h5><b><em>Name:</em></b> {{leave.surname}}, {{leave.first_name}} {{leave.middle_name}}</h5>
+                <h5><b><em>Leave Type:</em></b> {{leave.leave_type}}</h5>
+                <h5><b><em>Start Date:</em></b> {{leave.start}}</h5>
+                <h5><b><em>End Date:</em></b> {{leave.end}}</h5>
+                <h5><b><em>Duration:</em></b> {{leave.duration}}</h5>
+                <h5><b><em>Reason:</em></b> {{leave.reason}}</h5>
+            </div>
+            <div class="row content">
+                <button class="btn btn-primary" ng-click="approve(leave.leave_id)">Approve</button>
+                <button class="btn btn-danger" ng-click="decline(leave.leave_id)">Decline</button>
+            </div>
+        </div>
+    </div>
 </div>
-<h4>Leave Application Details</h4>
-
-<div class="panel panel-default">
-	<div class="panel-body">
-		<div class="row">
-			<img ng-src="img/staff/{{leave.img}}" class="img-responsive col-sm-3">
-			<div class="col-sm-7 col-sm-offset-2">
-				<h5><b>Leave History</b></h5>
-				<div class="table-responsive">
-					<table class="table table-striped table-condensed">
-						<thead>
-							<th>Type</th>
-							<th>Start</th>
-							<th>End</th>
-							<th>Duration</th>
-							<th>Reason</th>
-						</thead>
-						<tbody>
-							<tr ng-repeat="history in histories">
-								<td>{{history.leave_type}}</td>
-								<td>{{history.start}}</td>
-								<td>{{history.end}}</td>
-								<td>{{history.duration}}</td>
-								<td>{{history.reason}}</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div class="row content">
-			<h5><b><em>Name:</em></b> {{leave.surname}}, {{leave.first_name}} {{leave.middle_name}}</h5>
-			<h5><b><em>Leave Type:</em></b> {{leave.leave_type}}</h5>
-			<h5><b><em>Start Date:</em></b> {{leave.start}}</h5>
-			<h5><b><em>End Date:</em></b> {{leave.end}}</h5>
-			<h5><b><em>Duration:</em></b> {{leave.duration}}</h5>
-			<h5><b><em>Reason:</em></b> {{leave.reason}}</h5>
-		</div>
-		<div class="row content">
-			<button class="btn btn-primary" ng-click="approve(leave.leave_id)">Approve</button>
-			<button class="btn btn-danger" ng-click="decline(leave.leave_id)">Decline</button>
-		</div>
-	</div>
+<div ng-show="authenticated === 0">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <h4>You are not Authorised to View this page</h4><br>
+            <a href="#/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
 </div>

@@ -19,7 +19,7 @@
   <script src="app/LoginCtrl.js"></script>
   <script src="app/LogoutCtrl.js"></script>
   <script src="app/HomeCtrl.js"></script>
-  <script src="app/staff/StaffSummaryCtrl.js"></script>
+  <script src="app/staff/staffSummaryCtrl.js"></script>
   <script src="app/staff/StaffSearchCtrl.js"></script>
   <script src="app/staff/StaffListCtrl.js"></script>
   <script src="app/staff/StaffDetailCtrl.js"></script>
@@ -59,23 +59,25 @@
                   <div class="form-group form-inline">
                     <div ng-show="page === 'staffSearch'" class="form-group form-inline">
                       <label class="text-primary">Search for:</label>
-                      <select class="form-control" ng-model="field">
-                          <option value="name">Name</option>
-                          <option value="date_birth">Date of Birth</option>
-                          <option value="sex">Sex</option>
-                          <option value="state">State</option>
-                          <option value="lga">LGA</option>
-                          <option value="cadre">CADRE</option>
-                          <option value="designation">Designation/Rank</option>
-                          <option value="conraiss">Conraiss/Step</option>
-                          <option value="date_confirmation">Date of Confirmation</option>
-                          <option value="date_first_app">Date of First Appointment</option>
-                          <option value="date_present_app">Date of Present Appointment</option>
-                          <option value="date_last_promotion">Date of Last Promotion</option>
-                          <option value="qualifications">Qualifications</option>
-                          <option value="remarks">Remarks</option>
-                      </select>
-                      <input type="text" class="form-control" placeholder="Search" ng-model="query">
+                        <label>
+                            <select class="form-control" ng-model="field">
+                                <option value="name">Name</option>
+                                <option value="date_birth">Date of Birth</option>
+                                <option value="sex">Sex</option>
+                                <option value="state">State</option>
+                                <option value="lga">LGA</option>
+                                <option value="cadre">CADRE</option>
+                                <option value="designation">Designation/Rank</option>
+                                <option value="conraiss">Conraiss/Step</option>
+                                <option value="date_confirmation">Date of Confirmation</option>
+                                <option value="date_first_app">Date of First Appointment</option>
+                                <option value="date_present_app">Date of Present Appointment</option>
+                                <option value="date_last_promotion">Date of Last Promotion</option>
+                                <option value="qualifications">Qualifications</option>
+                                <option value="remarks">Remarks</option>
+                            </select>
+                        </label>
+                        <input type="text" class="form-control" placeholder="Search" ng-model="query">
                       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
                       &nbsp&nbsp&nbsp&nbsp
                     </div>
@@ -102,7 +104,7 @@
           <hr>
             <li ng-class="{'active':page==='home'}"><a href="#/"><span class="glyphicon glyphicon-home"></span>&nbsp Home</a></li>
             <li ng-class="{ 'active':page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'||page==='addStaff'||page==='editStaff'}"><a href="#/staff"><span class="glyphicon glyphicon-user"></span>&nbsp Staff Management</a></li>
-            <li ng-class="{'active':page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'||page==='leaveApply'}"><a href="#/leave"><span class="glyphicon glyphicon-user"></span>&nbsp Leave Management</a></li>
+            <li ng-class="{'active':page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'||page==='leaveApply'}"><a href="#/leave"><span class="glyphicon glyphicon-plane"></span>&nbsp Leave Management</a></li>
           </ul>
         </aside>
 

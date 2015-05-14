@@ -1,6 +1,16 @@
-<h4 class="home col-sm-8 col-sm-offset-2">Welcome to the NACETEM Human Resources Management System</h4>
+<div ng-show="authenticated === 1">
+    <h4 class="home col-sm-8 col-sm-offset-2">Welcome to the NACETEM Human Resources Management System</h4>
 
-<div class="home col-sm-8 col-sm-offset-2">
-	<a href="#/staff" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span> Staff Management</a>
-	<a href="#/leave" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span> Leave Management</a>
+    <div class="home col-sm-8 col-sm-offset-2">
+        <a href="#/staff" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span> Staff Management</a>
+        <a href="#/leave" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plane"></span> Leave Management</a>
+    </div>
+</div>
+<div ng-show="authenticated === 0">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <h4>You are not Authorised to View this page</h4><br>
+            <a href="#/login" class="btn btn-primary">Login</a>
+        </div>
+    </div>
 </div>
