@@ -1,44 +1,44 @@
 <!doctype html>
 <html ng-app="hermes">
 <head>
+    <meta charset="utf-8">
+    <title>HRMS</title>
 
-  <meta charset="utf-8">
-  <title>HRMS</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/custom.css" rel="stylesheet">
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
+    <script src="js/lodash.min.js"></script>
+    <script src="js/angular-file-upload-all.js"></script>
 
-  <script src="js/angular.js"></script>
-  <script src="js/angular-route.min.js"></script>
-  <script src="js/angular-animate.js"></script>
-  <script src="js/angular-sanitize.min.js"></script>
-  <script src="js/lodash.min.js"></script>
-  <script src="js/angular-file-upload-all.js"></script>
-
-  <script src="app/app.js"></script>
-  <script src="app/LoginCtrl.js"></script>
-  <script src="app/LogoutCtrl.js"></script>
-  <script src="app/HomeCtrl.js"></script>
-  <script src="app/staff/staffSummaryCtrl.js"></script>
-  <script src="app/staff/StaffSearchCtrl.js"></script>
-  <script src="app/staff/StaffListCtrl.js"></script>
-  <script src="app/staff/StaffDetailCtrl.js"></script>
-  <script src="app/staff/AddStaffCtrl.js"></script>
-  <script src="app/staff/EditStaffCtrl.js"></script>
-  <script src="app/leave/LeaveSummaryCtrl.js"></script>
-  <script src="app/leave/LeavePendingCtrl.js"></script>
-  <script src="app/leave/LeaveApprovedCtrl.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/LoginCtrl.js"></script>
+    <script src="app/LogoutCtrl.js"></script>
+    <script src="app/HomeCtrl.js"></script>
+    <script src="app/staff/staffSummaryCtrl.js"></script>
+    <script src="app/staff/StaffSearchCtrl.js"></script>
+    <script src="app/staff/StaffListCtrl.js"></script>
+    <script src="app/staff/StaffDetailCtrl.js"></script>
+    <script src="app/staff/AddStaffCtrl.js"></script>
+    <script src="app/staff/EditStaffCtrl.js"></script>
+    <script src="app/leave/LeaveSummaryCtrl.js"></script>
+    <script src="app/leave/LeavePendingCtrl.js"></script>
+    <script src="app/leave/LeaveApprovedCtrl.js"></script>
     <script src="app/leave/LeaveDeclinedCtrl.js"></script>
-  <script src="app/leave/LeaveReviewCtrl.js"></script>
-  <script src="app/leave/LeaveApplyCtrl.js"></script>
+    <script src="app/leave/LeaveCompletedCtrl.js"></script>
+    <script src="app/leave/LeaveReviewCtrl.js"></script>
+    <script src="app/leave/LeaveApplyCtrl.js"></script>
 
-  <script src="js/jquery-1.11.2.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/respond.min.js"></script>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/respond.min.js"></script>
 
-  <script src="js/tinymce/tinymce.min.js"></script>
-  <script src="js/tinyconfig.js"></script>
-  <script src="js/tinymceBind.js"></script>
+    <script src="js/tinymce/tinymce.min.js"></script>
+    <script src="js/tinyconfig.js"></script>
+    <script src="js/tinymceBind.js"></script>
 
 </head>
 
@@ -82,8 +82,8 @@
                       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
                       &nbsp&nbsp&nbsp&nbsp
                     </div>
-                      <a ng-show="page==='staffSearch'||'staffList'||'staffDetail'||'staffSummary'" class="btn btn-primary" href="#/staff/add">Add Staff Member</a>
-                      <a ng-show="page==='leaveSummary'||'leavePending'||'leaveApproved'||'leaveCompleted'||'leaveHistory'||'leaveReview'" class="btn btn-primary" href="#/leave/apply">Apply for Leave</a>
+                      <a ng-show="page==='staffSearch'||page==='staffList'||page==='staffDetail'||page==='staffSummary'" class="btn btn-primary" href="#/staff/add">Add Staff Member</a>
+                      <a ng-show="page==='leaveSummary'||page==='leavePending'||page==='leaveApproved'||page==='leaveCompleted'||page==='leaveHistory'||page==='leaveReview'" class="btn btn-primary" href="#/leave/apply">Apply for Leave</a>
                   </div>
               </form>
               <form class="navbar-form navbar-right" ng-show="authenticated === 1">
@@ -100,6 +100,7 @@
     <div class="container-fluid mainBody">
       <div ng-class="{'row':menu === 1}">
         <div ng-include="'app/layout/side_menu.html'"></div>
+        
         <div ng-class="{ 'col-sm-10': menu === 1 }" ng-view>
         </div>
       </div>

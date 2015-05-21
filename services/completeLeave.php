@@ -9,7 +9,7 @@ $con = mysqli_connect($host,$db_user,$db_pass,$db) or die("Could Not Connect");
 
 $sn = $_POST['leave_id'];
 
-$query = "UPDATE `leave` SET status = '2' WHERE sn = '$sn';";
+$query = "UPDATE `leave` SET status = '3' WHERE sn = '$sn';";
 $result = mysqli_query($con,$query);
 
 echo json_encode("success");

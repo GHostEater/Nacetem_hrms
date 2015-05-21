@@ -89,20 +89,31 @@ app.config(['$routeProvider', function($routeProvider) {
 
     $http.get('services/session.php')
   .success(function(data){
-    $rootScope.name = data.name;
-    if ($rootScope.name){
-      $rootScope.authenticated = 1;
-    }
-    else {
-      $location.url('/login');
-      $rootScope.authenticated = 0;
-    }
+            $rootScope.name = data.name;
+                if ($rootScope.name){
+                    $rootScope.authenticated = 1;
+                }
+                else {
+                    $location.url('/login');
+                    $rootScope.authenticated = 0;
+                }
   });
     $http.get('services/leaveAPI.php')
     .success(function(data){
-      $rootScope.leavePendingLength = _.where(data,{"status":"0"}).length;
-      $rootScope.leaveApprovedLength = _.where(data,{"status":"1"}).length;
-      $rootScope.leaveDeclinedLength = _.where(data,{"status":"2"}).length;
+            $rootScope.leavePendingLength = _.where(data,{"status":"0"}).length;
+            $rootScope.leaveApprovedLength = _.where(data,{"status":"1"}).length;
+            $rootScope.leaveDeclinedLength = _.where(data,{"status":"2"}).length;
+            $rootScope.leaveCompleted = [];
+            for (var i = 0; i < data.length; i++){
+                var today = new Date();
+                var date = new Date(data[i].end);
+
+                if (today >= date && data[i].status != '3'){
+                    $rootScope.leaveCompleted.push(data[i]);
+                }
+
+            }
+            $rootScope.leaveCompletedLength = $rootScope.leaveCompleted.length;
     });
 
   });

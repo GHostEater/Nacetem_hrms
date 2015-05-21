@@ -1,0 +1,16 @@
+***Build 5***
+=============
++ Added SQL file for database tables
++ Added Leave Completed Page
++ Added function for acknowledging leave as completed in Leave Completed Page
+=============
+
+***Build 4***
+=============
++ Added Leave Approved Page
++ Added Leave Declined Page
++ Added function for accessing Leave Review from Leave Declined Page
+
+* Fixed Display of info without authentication in Staff and Leave Section
+* Fixed Side Menu Display on Login Page without Authentication
+=============

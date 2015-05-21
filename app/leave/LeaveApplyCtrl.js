@@ -33,8 +33,8 @@ var LeaveApplyCtrl = function($scope,$rootScope,$http,$log,$upload,$filter,$loca
 		    		 "leave_type":$scope.leave_type,
 		    		 "start":$scope.start,
 		    		 "end":$scope.end,
-		    		 "reason":$scope.reason,
-					 },
+		    		 "reason":$scope.reason
+					 }
 			})
 			.success(function(data){
 				$http.get('services/leaveAPI.php')

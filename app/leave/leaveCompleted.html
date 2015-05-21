@@ -9,21 +9,23 @@
             <th>End</th>
             <th>Duration</th>
             <th>Reason</th>
+            <th>Accept</th>
             </thead>
             <tbody>
-            <tr ng-repeat="leaf in leaveDeclined" ng-click="table(leaf.leave_id)">
+            <tr ng-repeat="leaf in leaveCompleted">
                 <td>{{leaf.surname}}, {{leaf.first_name}} {{leaf.middle_name}}</td>
                 <td>{{leaf.leave_type}}</td>
                 <td>{{leaf.start}}</td>
                 <td>{{leaf.end}}</td>
                 <td>{{leaf.duration}}</td>
                 <td ng-bind-html="leaf.reason"></td>
+                <td><button class="btn btn-primary" ng-click="acceptLeave(leaf.leave_id)">Accept</button></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div ng-show="leaveDeclinedLength === 0">
-        <h3>There are no Declined Leaves</h3>
+    <div ng-show="leaveCompletedLength === 0">
+        <h3>There are no Completed Leaves</h3>
     </div>
 </div>
 <div ng-show="authenticated === 0">

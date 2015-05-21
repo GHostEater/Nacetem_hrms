@@ -12,7 +12,7 @@
 
 
 ##Leave Management
-####Staff Aplly for leave
+####Staff Apply for leave
 ####Admin review of leave application
 ####Approval / Denial of leave application
 ####Tabs Showing Pending applications, Approved and Completed leave Applications
