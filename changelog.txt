@@ -1,3 +1,10 @@
+***Build 6***
+=============
++ Added Services for Staff and Leave
+
+* Optimized Code for Controllers and Run function by moving them to services
+* Removed Select Dropdown from Staff Search Page
+
 ***Build 5***
 =============
 + Added SQL file for database tables

@@ -1,13 +1,12 @@
 var app = angular.module("hermes");
 
-var StaffSearchCtrl = function ($scope,$http,$rootScope,$location) {
+var StaffSearchCtrl = function ($scope,$rootScope,Staff) {
 	$rootScope.page = "staffSearch";
-	$rootScope.field = "name";
 
-	$http.get('services/staffAPI.php')
-	.success(function(data){
-		$scope.staffs = data;
-	});
+    Staff.getStaff()
+        .then(function(data){
+            $scope.staffs = data;
+        });
 
 };
 

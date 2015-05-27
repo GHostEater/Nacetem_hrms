@@ -15,6 +15,12 @@
     <script src="js/angular-file-upload-all.js"></script>
 
     <script src="app/app.js"></script>
+
+    <script src="services/Staff.js"></script>
+    <script src="services/Leave.js"></script>
+    <script src="services/Auth.js"></script>
+    <script src="services/Menu.js"></script>
+
     <script src="app/LoginCtrl.js"></script>
     <script src="app/LogoutCtrl.js"></script>
     <script src="app/HomeCtrl.js"></script>
@@ -60,24 +66,6 @@
                   <div class="form-group form-inline">
                     <div ng-show="page === 'staffSearch'" class="form-group form-inline">
                       <label class="text-primary">Search for:</label>
-                        <label>
-                            <select class="form-control" ng-model="field">
-                                <option value="name">Name</option>
-                                <option value="date_birth">Date of Birth</option>
-                                <option value="sex">Sex</option>
-                                <option value="state">State</option>
-                                <option value="lga">LGA</option>
-                                <option value="cadre">CADRE</option>
-                                <option value="designation">Designation/Rank</option>
-                                <option value="conraiss">Conraiss/Step</option>
-                                <option value="date_confirmation">Date of Confirmation</option>
-                                <option value="date_first_app">Date of First Appointment</option>
-                                <option value="date_present_app">Date of Present Appointment</option>
-                                <option value="date_last_promotion">Date of Last Promotion</option>
-                                <option value="qualifications">Qualifications</option>
-                                <option value="remarks">Remarks</option>
-                            </select>
-                        </label>
                         <input type="text" class="form-control" placeholder="Search" ng-model="query">
                       <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
                       &nbsp&nbsp&nbsp&nbsp

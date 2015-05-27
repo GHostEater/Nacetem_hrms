@@ -1,13 +1,13 @@
 var app = angular.module("hermes");
 
-var StaffListCtrl = function ($scope,$http,$rootScope,$location) {
+var StaffListCtrl = function ($scope,$rootScope,$location,Staff) {
 	$rootScope.page = "staffList";
 	$rootScope.field = "name";
 
-	$http.get('services/staffAPI.php')
-	.success(function(data){
-		$scope.staffs = data;
-	});
+    Staff.getStaff()
+        .then(function(data){
+            $scope.staffs = data;
+        });
 
 	$scope.table = function(staff_id){
 		$location.url('/staff/'+staff_id);

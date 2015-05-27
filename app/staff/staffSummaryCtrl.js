@@ -1,11 +1,11 @@
 var app = angular.module("hermes");
 
-var StaffSummaryCtrl = function ($scope,$rootScope,$http,$log) {
+var StaffSummaryCtrl = function ($scope,$rootScope,Staff) {
 
 	$rootScope.page = "staffSummary";
 
-	$http.get("services/staffAPI.php")
-		 .success(function(data){
+	Staff.getStaff()
+		 .then(function(data){
 		 	$scope.staffs = data;
 
 			$scope.maleStaff = _.where($scope.staffs,{"sex":"Male"});

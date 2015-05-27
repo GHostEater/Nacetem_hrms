@@ -1,24 +1,22 @@
 var app = angular.module("hermes");
 
-var StaffDetailCtrl = function ($scope,$rootScope,$http,$log,$routeParams,$upload) {
+var StaffDetailCtrl = function ($scope,$rootScope,$routeParams,$upload,Staff) {
 
 	$rootScope.page = "staffDetail";
 
 	$scope.staffDeleteSuccess = 0;
 
-	$http.get("services/staffAPI.php")
-		 .success(function(data){
+    Staff.getStaff()
+        .then(function(data){
+            $scope.staffs = data;
+            $scope.staff = _.find($scope.staffs,{"staff_id":$routeParams.staff_id});
+        });
 
-		 	$scope.staffs = data;
-
-		 	$scope.staff = _.find($scope.staffs, {"staff_id":$routeParams.staff_id});
-
-		 });
 	$scope.deleteStaff = function(){
 		$upload.upload({
 		    url: 'services/deleteStaff.php',
 		    method: 'POST',
-		    fields: {"sn":$scope.staff.staff_id},
+		    fields: {"sn":$scope.staff.staff_id}
 		})
 		.success(function(data){
 			$scope.staffDeleteSuccess = 1;

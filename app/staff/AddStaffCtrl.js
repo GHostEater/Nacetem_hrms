@@ -4,7 +4,7 @@ var AddStaffCtrl = function($scope,$rootScope,$http,$log,$upload,$filter){
 	$rootScope.page = "addStaff";
 
 	$scope.addStaffSuccess = 0;
-	
+
 
 
 	$scope.submit = function(){
@@ -17,7 +17,7 @@ var AddStaffCtrl = function($scope,$rootScope,$http,$log,$upload,$filter){
 
 
 		$upload.upload({
-		    url: 'services/addStaff.php', 
+		    url: 'services/addStaff.php',
 		    headers: {'Content-Type': $scope.file.type},
 		    method: 'POST',
 		    file: $scope.file,
@@ -36,8 +36,8 @@ var AddStaffCtrl = function($scope,$rootScope,$http,$log,$upload,$filter){
 		    		 "date_present_app":$scope.date_present_app2,
 		    		 "date_last_promotion":$scope.date_last_promotion2,
 		    		 "qualifications":$scope.qualifications,
-		    		 "remarks":$scope.remarks,
-					 },
+		    		 "remarks":$scope.remarks
+					 }
 			})
 			.success(function(data) {
 				console.log(data);

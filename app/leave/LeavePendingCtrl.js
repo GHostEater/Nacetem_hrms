@@ -1,11 +1,11 @@
 var app = angular.module("hermes");
 
-var LeavePendingCtrl = function ($scope,$rootScope,$http,$log,$location) {
+var LeavePendingCtrl = function ($scope,$rootScope,Leave,$location) {
 
 	$rootScope.page = "leavePending";
 
-	$http.get("services/leaveAPI.php")
-		 .success(function(data){
+	Leave.getLeave()
+		 .then(function(data){
 		 	$scope.leave = data;
 
 		 	$scope.leavePending = _.where($scope.leave,{"status":"0"});

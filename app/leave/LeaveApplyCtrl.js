@@ -1,18 +1,17 @@
 var app = angular.module('hermes');
 
-var LeaveApplyCtrl = function($scope,$rootScope,$http,$log,$upload,$filter,$location){
+var LeaveApplyCtrl = function($scope,$rootScope,Staff,Leave,$upload,$filter,$location){
 	$rootScope.page = "leaveApply";
 	$scope.staffSelected = 0;
 	
-	$http.get('services/staffAPI.php')
-		.success(function(data){
+	Staff.getStaff()
+		.then(function(data){
 			$scope.staffs = data;
 		});
 
 	$scope.selectStaff = function(staff_id){
 		$scope.staff_id = staff_id;
 		$scope.staffSelected = 1;
-
 		$scope.staffPicked = _.find($scope.staffs,{"staff_id":staff_id});
 	};
 
@@ -21,11 +20,8 @@ var LeaveApplyCtrl = function($scope,$rootScope,$http,$log,$upload,$filter,$loca
 	};
 
 	$scope.submit = function(){
-
 		$scope.start = $filter('date')($scope.starting, "yyyy-MMMM-dd");
 		$scope.end = $filter('date')($scope.end, "yyyy-MMMM-dd");
-
-
 		$upload.upload({
 		    url: 'services/leaveApply.php',
 		    method: 'POST',
@@ -37,11 +33,8 @@ var LeaveApplyCtrl = function($scope,$rootScope,$http,$log,$upload,$filter,$loca
 					 }
 			})
 			.success(function(data){
-				$http.get('services/leaveAPI.php')
-				    .success(function(data){
-				      $rootScope.leavePendingLength = _.where(data,{"status":"0"}).length;
-				      $rootScope.leaveApprovedLength = _.where(data,{"status":"1"}).length;
-				  	});
+                $scope.success = data;
+				Leave.getLeaveStats();
 				$location.url('/leave/pending');
 
 			});

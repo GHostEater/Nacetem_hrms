@@ -1,11 +1,11 @@
 var app = angular.module("hermes");
 
-var LeaveSummaryCtrl = function ($scope,$rootScope,$http,$log) {
+var LeaveSummaryCtrl = function ($scope,$rootScope,Leave) {
 
 	$rootScope.page = "leaveSummary";
 
-	$http.get("services/staffAPI.php")
-		 .success(function(data){
+	Leave.getLeave()
+		 .then(function(data){
 		 	$scope.staffs = data;
 
 			$scope.staffNo = $scope.staffs.length;
